@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我的個人簡介卡片</title>
+    <style>
+        * { margin:0; padding:0; box-sizing:border-box; font-family:'Segoe UI', sans-serif;}
+        body {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #6a11cb, #2575fc);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        .container {
+            max-width: 1000px;
+            width: 100%;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+        }
+        .card {
+            background: rgba(255,255,255,0.15);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 15px;
+            text-align: center;
+            color: #fff;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+        }
+        .card img {
+            width: 100%;
+            border-radius: 15px;
+            object-fit: cover;
+            margin-bottom: 10px;
+        }
+        .card h3 {
+            margin-bottom: 10px;
+        }
+        .card p {
+            font-size: 0.95rem;
+            margin-bottom: 15px;
+            line-height: 1.4;
+        }
+        .btn {
+            background: #fff;
+            color: #2575fc;
+            border:none;
+            padding:10px 20px;
+            border-radius:50px;
+            cursor:pointer;
+            font-weight:bold;
+            transition: all 0.3s ease;
+        }
+        .btn:hover {
+            background:#2575fc;
+            color:#fff;
+        }
+        .info-card {
+            display:none;
+            margin-top:10px;
+            padding:10px;
+            background: rgba(255,255,255,0.2);
+            border-radius:10px;
+            text-align:left;
+            font-size:0.9rem;
+            line-height:1.4;
+        }
+        @media(max-width:480px){
+            .container { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- 興趣 -->
+        <div class="card">
+            <img src="https://via.placeholder.com/220x150?text=興趣" alt="興趣圖片">
+            <h3>興趣</h3>
+            <p>我喜歡 AI、音樂、藝術和運動，經常參加比賽和專案挑戰自己。</p>
+            <button class="btn" onclick="toggleInfo(this)">查看更多</button>
+            <div class="info-card">
+                進一步的興趣細節：我曾參加數學競賽、程式設計營隊，也喜歡鋼琴和繪畫。
+            </div>
+        </div>
+
+        <!-- 學歷 -->
+        <div class="card">
+            <img src="https://via.placeholder.com/220x150?text=學歷" alt="學歷圖片">
+            <h3>學歷</h3>
+            <p>目前就讀高中，對科技和跨領域研究充滿熱情。</p>
+            <button class="btn" onclick="toggleInfo(this)">查看更多</button>
+            <div class="info-card">
+                進一步的學歷細節：曾參加國內外比賽，並在英文演講與辯論中獲獎。
+            </div>
+        </div>
+
+        <!-- 喜歡的東西 -->
+        <div class="card">
+            <img src="https://via.placeholder.com/220x150?text=喜歡" alt="喜歡圖片">
+            <h3>喜歡的東西</h3>
+            <p>喜歡編程、創意手作、旅行、音樂和美食。</p>
+            <button class="btn" onclick="toggleInfo(this)">查看更多</button>
+            <div class="info-card">
+                進一步細節：喜歡嘗試新科技產品，也喜歡探索不同文化的料理。
+            </div>
+        </div>
+
+        <!-- 討厭的東西 -->
+        <div class="card">
+            <img src="https://via.placeholder.com/220x150?text=討厭" alt="討厭圖片">
+            <h3>討厭的東西</h3>
+            <p>不太喜歡拖延、混亂或沒有挑戰性的事物。</p>
+            <button class="btn" onclick="toggleInfo(this)">查看更多</button>
+            <div class="info-card">
+                進一步細節：對浪費時間或毫無進步的活動特別排斥。
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleInfo(button){
+            const info = button.nextElementSibling;
+            info.style.display = info.style.display === 'block' ? 'none' : 'block';
+        }
+    </script>
+</body>
+</html>
